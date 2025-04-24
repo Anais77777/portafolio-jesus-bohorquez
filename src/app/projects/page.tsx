@@ -84,14 +84,13 @@ export default function Projects() {
   return (
     <main className="pt-20 pb-16 bg-[#121212]">
       <div className="container mx-auto max-w-6xl px-4">
-        {/* Header with tabs */}
+        {/* Header solo con tabs */}
         <motion.div
-          className="flex justify-between items-center mb-10"
+          className="flex justify-center items-center mb-10"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="text-lg font-bold text-white">YOUR.DEV</div>
           <div className="flex space-x-3 md:space-x-6 overflow-x-auto pb-2 scrollbar-hide">
             {categories.map((category) => (
               <motion.button

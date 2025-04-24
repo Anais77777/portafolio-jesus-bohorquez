@@ -16,9 +16,9 @@ export default function Header() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full py-4 px-8 md:px-24 bg-dark/80 backdrop-blur-md text-white z-50 mt-7">
+    <nav className="fixed top-0 w-full py-4 px-8 md:px-24 bg-transparent backdrop-blur-sm text-white z-50 mt-7">
       <div className="flex justify-between items-center">
-        <Link href="/" className="font-bold text-xl">
+        <Link href="/" className="font-bold text-sm">
           YOUR.DEV
         </Link>
 
@@ -50,7 +50,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden pt-4 pb-4 space-y-4 flex flex-col">
+        <div className="md:hidden pt-4 pb-4 space-y-4 flex flex-col bg-transparent">
           {navLinks.map((link) => (
             <Link
               key={link.href}
