@@ -327,7 +327,7 @@ export default function Contact() {
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Jesús Bohorquez
+              Send Me an Email
             </motion.a>
           </motion.div>
         </motion.div>
