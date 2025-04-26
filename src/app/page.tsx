@@ -7,33 +7,7 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#121418] flex flex-col items-center justify-center text-center px-4 py-16">
-      {/* Navegación en la parte superior */}
-      <nav className="fixed top-6 right-0 p-6 flex gap-8">
-        <Link
-          href="/"
-          className="text-gray-300 hover:text-[#4facfe] transition-colors duration-300"
-        >
-          Home page
-        </Link>
-        <Link
-          href="/about-me"
-          className="text-gray-300 hover:text-[#4facfe] transition-colors duration-300"
-        >
-          About me
-        </Link>
-        <Link
-          href="/projects"
-          className="text-gray-300 hover:text-[#4facfe] transition-colors duration-300"
-        >
-          Projects
-        </Link>
-        <Link
-          href="/contact"
-          className="text-gray-300 hover:text-[#4facfe] transition-colors duration-300"
-        >
-          Contact
-        </Link>
-      </nav>
+      {/* Eliminamos la navegación duplicada en la parte superior */}
 
       <div className="flex-1 flex flex-col items-center justify-center max-w-5xl w-full mt-8">
         {/* Nombre con gradiente */}
