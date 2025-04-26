@@ -1,8 +1,39 @@
 "use client";
 
+import { useState, ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
 
+//Formulario
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export default function Contact() {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ): void => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+
+    alert("Thank you for your message. I'll get back to you soon!");
+
+    setFormData({ name: "", email: "", subject: "", message: "" });
+  };
+
   // Variantes de animación
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,7 +61,7 @@ export default function Contact() {
     {
       title: "Email",
       icon: "fas fa-envelope",
-      info: "bohorquez866@gmail.com",
+      info: "Jesús Bohorquez",
       link: "mailto:bohorquez866@gmail.com",
     },
     {
@@ -56,7 +87,7 @@ export default function Contact() {
   ];
 
   return (
-    <main className="pt-20 pb-16 bg-[#121212]">
+    <main className="pt-32 pb-16 bg-[#121212]">
       <div className="container mx-auto max-w-4xl px-4">
         {/* Encabezado principal */}
         <motion.h1
@@ -68,9 +99,8 @@ export default function Contact() {
           Get In Touch
         </motion.h1>
 
-        {/* Texto introductorio */}
         <motion.p
-          className="text-gray-300 text-center mb-16 max-w-2xl mx-auto"
+          className="text-gray-300 text-center mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -79,50 +109,151 @@ export default function Contact() {
           opportunities to be part of your vision.
         </motion.p>
 
-        {/* Métodos de contacto */}
         <motion.div
-          className="mb-16"
+          className="mb-12"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.h2
-            className="text-2xl font-bold text-center mb-10 text-blue-400"
+            className="text-xl font-bold text-center mb-6 text-blue-400"
             variants={itemVariants}
           >
             Contact Methods
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-4">
             {contactMethods.map((method, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col items-center"
+                className="flex flex-col items-center text-center"
                 variants={itemVariants}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
               >
                 <motion.div
-                  className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-4"
+                  className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-2"
                   whileHover={{
                     scale: 1.1,
                     boxShadow: "0 0 20px rgba(79, 172, 254, 0.6)",
                     transition: { duration: 0.2 },
                   }}
                 >
-                  <i className={`${method.icon} text-white text-2xl`}></i>
+                  <i className={`${method.icon} text-white text-lg`}></i>
                 </motion.div>
-                <h3 className="font-bold text-white mb-2">{method.title}</h3>
+                <h3 className="font-bold text-white text-sm mb-1">
+                  {method.title}
+                </h3>
                 <a
                   href={method.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
+                  className="text-gray-300 text-xs md:text-sm hover:text-blue-400 transition-colors"
                 >
                   {method.info}
                 </a>
               </motion.div>
             ))}
           </div>
+        </motion.div>
+
+        <motion.div
+          className="bg-[#1a1d23] rounded-lg p-6 md:p-8 mb-12 border border-[#2a2e3a]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <h2 className="text-2xl font-bold text-white mb-6 text-center">
+            Send Me a Message
+          </h2>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-gray-300 mb-1 text-sm"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 bg-[#242836] border border-[#2a2e3a] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-gray-300 mb-1 text-sm"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 bg-[#242836] border border-[#2a2e3a] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="subject"
+                className="block text-gray-300 mb-1 text-sm"
+              >
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-[#242836] border border-[#2a2e3a] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-gray-300 mb-1 text-sm"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                className="w-full px-4 py-2 bg-[#242836] border border-[#2a2e3a] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white resize-none"
+                required
+              ></textarea>
+            </div>
+
+            <div className="text-center">
+              <motion.button
+                type="submit"
+                className="px-8 py-3 rounded-md bg-gradient-to-r from-[#4facfe] to-[#7f78ff] text-white font-medium text-base hover:opacity-90 transition-all duration-300"
+                whileHover={{
+                  scale: 1.03,
+                  boxShadow: "0 10px 25px -15px rgba(79, 172, 254, 0.7)",
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Send Message
+              </motion.button>
+            </div>
+          </form>
         </motion.div>
 
         {/* Sección "Let's Build Something Amazing Together" */}
@@ -189,14 +320,14 @@ export default function Contact() {
           >
             <motion.a
               href="mailto:bohorquez866@gmail.com"
-              className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-[#4facfe] to-[#7f78ff] text-white font-medium hover:opacity-90 transition-all duration-300"
+              className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-[#4facfe] to-[#7f78ff] text-white font-medium text-lg hover:opacity-90 transition-all duration-300"
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 10px 25px -15px rgba(79, 172, 254, 0.7)",
+                boxShadow: "0 15px 30px -15px rgba(79, 172, 254, 0.7)",
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Send Me an Email
+              Jesús Bohorquez
             </motion.a>
           </motion.div>
         </motion.div>

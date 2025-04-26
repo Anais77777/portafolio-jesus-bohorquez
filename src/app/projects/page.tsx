@@ -46,7 +46,7 @@ export default function Projects() {
     },
   ];
 
-  // Categorías únicas para filtrado
+  // Categorías para filtrado
   const categories = [
     "all",
     ...new Set(projects.map((project) => project.category)),
@@ -82,11 +82,10 @@ export default function Projects() {
   };
 
   return (
-    <main className="pt-20 pb-16 bg-[#121212]">
+    <main className="pt-32 pb-16 bg-[#121212]">
       <div className="container mx-auto max-w-6xl px-4">
-        {/* Header solo con tabs */}
         <motion.div
-          className="flex justify-center items-center mb-10"
+          className="flex justify-center items-center mb-12"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
@@ -96,7 +95,7 @@ export default function Projects() {
               <motion.button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-3 py-1 rounded-full whitespace-nowrap ${
+                className={`px-4 py-2 rounded-full whitespace-nowrap text-sm md:text-base ${
                   activeCategory === category
                     ? "bg-gradient-to-r from-[#4facfe] to-[#7f78ff] text-white"
                     : "text-[#4facfe] hover:bg-[#1b1b4a] transition-colors"
@@ -112,7 +111,7 @@ export default function Projects() {
 
         {/* Página principal */}
         <motion.h1
-          className="text-4xl font-bold mb-12 gradient-text text-white text-center"
+          className="text-4xl font-bold mb-12 bg-gradient-to-r from-[#4facfe] via-[#7f78ff] to-[#6a82fb] bg-clip-text text-transparent text-center"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -122,7 +121,7 @@ export default function Projects() {
 
         {/* Grid de proyectos */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -131,7 +130,7 @@ export default function Projects() {
             {filteredProjects.map((project) => (
               <motion.div
                 key={project.id}
-                className="bg-[#1b1b3a] rounded-xl p-6 hover:bg-[#242450] transition-all duration-300"
+                className="bg-[#1b1b3a] rounded-xl p-6 hover:bg-[#242450] transition-all duration-300 border border-[#2a2e3a] hover:border-[#4facfe]"
                 variants={itemVariants}
                 whileHover={{
                   y: -5,

@@ -7,8 +7,6 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#121418] flex flex-col items-center justify-center text-center px-4 py-16">
-      {/* Eliminamos la navegación duplicada en la parte superior */}
-
       <div className="flex-1 flex flex-col items-center justify-center max-w-5xl w-full mt-8">
         {/* Nombre con gradiente */}
         <motion.h1
@@ -20,7 +18,7 @@ export default function Home() {
           JESÚS BOHORQUEZ
         </motion.h1>
 
-        {/* Foto de perfil circular con borde azul brillante */}
+        {/* Foto de perfil */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

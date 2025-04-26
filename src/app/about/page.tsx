@@ -87,9 +87,9 @@ export default function About() {
   ];
 
   return (
-    <main className="pt-20 pb-16 bg-[#121418]">
+    <main className="pt-32 pb-16 bg-[#121418]">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        {/* Título de la sección */}
+        {/* Título de la sección - Margen ajustado con pt-32 arriba */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12 text-center bg-gradient-to-r from-[#4facfe] via-[#7f78ff] to-[#6a82fb] bg-clip-text text-transparent">
           About Me
         </h1>
@@ -173,8 +173,9 @@ export default function About() {
                   key={index}
                   className="bg-[#1a1d23] rounded-lg p-2 md:p-3 flex items-center gap-1 md:gap-2 hover:bg-[#242836] transition-all duration-300 border border-[#2a2e3a]"
                 >
-                  <div className="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center">
-                    <i className={`${skill.icon} text-[#4facfe]`}></i>
+                  {/* Contenedor de tamaño fijo para los iconos */}
+                  <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
+                    <i className={`${skill.icon} text-[#4facfe] text-base`}></i>
                   </div>
                   <span className="text-gray-200 text-xs md:text-sm">
                     {skill.name}
