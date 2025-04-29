@@ -4,26 +4,26 @@ import Link from "next/link";
 export default function About() {
   // Habilidades y tecnologías
   const skills = [
-    { name: "JavaScript", icon: "fab fa-js" },
-    { name: "TypeScript", icon: "fas fa-code" },
-    { name: "React", icon: "fab fa-react" },
-    { name: "Next.js", icon: "fas fa-code-branch" },
-    { name: "Node.js", icon: "fab fa-node-js" },
-    { name: "CSS", icon: "fab fa-css3-alt" },
-    { name: "Express", icon: "fas fa-server" },
-    { name: "GraphQL", icon: "fas fa-project-diagram" },
-    { name: "PostgreSQL", icon: "fas fa-database" },
-    { name: "AWS", icon: "fab fa-aws" },
-    { name: "Docker", icon: "fab fa-docker" },
-    { name: "UX", icon: "fas fa-user-circle" },
-    { name: "Vue.js", icon: "fab fa-vuejs" },
-    { name: "GitHub Actions", icon: "fab fa-github" },
-    { name: "Cypress", icon: "fas fa-vial" },
-    { name: "RESTful APIs", icon: "fas fa-network-wired" },
-    { name: "Wordpress", icon: "fab fa-wordpress" },
-    { name: "Python", icon: "fab fa-python" },
-    { name: "Azure", icon: "fab fa-accusoft" },
-    { name: "Nuxt", icon: "fa-brands fa-think-peaks" },
+    { name: "JavaScript", image: "/javascript.png" },
+    { name: "TypeScript", image: "/typeS.png" },
+    { name: "React", image: "/React.png" },
+    { name: "Next.js", image: "/nextjs.png" },
+    { name: "Node.js", image: "/nodeJs.png" },
+    { name: "CSS", image: "/css.png" },
+    { name: "Express", image: "/express.png" },
+    { name: "WebSocket", image: "/web.jpg" },
+    { name: "PostgreSQL", image: "/postgreSQ.png" },
+    { name: "AWS", image: "/aws.png" },
+    { name: "Docker", image: "/docker.png" },
+    { name: "Jest", image: "/jest.png" },
+    { name: "Vue.js", image: "/vuejs-icon.png" },
+    { name: "GitHub Actions", image: "/githubA.png" },
+    { name: "Cypress", image: "/cypress-logo.png" },
+    { name: "RESTful APIs", image: "/aPI.png" },
+    { name: "Vercel", image: "/vercel.png" },
+    { name: "Python", image: "/python.png" },
+    { name: "Azure", image: "/azure.png" },
+    { name: "Nuxt", image: "/nuxt.png" },
   ];
 
   // Experiencia laboral
@@ -175,9 +175,15 @@ export default function About() {
                 >
                   {/* Contenedor de tamaño fijo para los iconos */}
                   <div className="w-6 h-6 flex items-center justify-center flex-shrink-0">
-                    <i className={`${skill.icon} text-[#4facfe] text-base`}></i>
+                    <Image
+                      src={skill.image}
+                      alt={skill.name}
+                      width={24}
+                      height={24}
+                      className="w-5 h-5 object-contain"
+                    />
                   </div>
-                  <span className="text-gray-200 text-xs md:text-sm">
+                  <span className="text-gray-200 text-xs md:text-sm truncate">
                     {skill.name}
                   </span>
                 </div>
@@ -229,12 +235,7 @@ export default function About() {
                           <span className="text-[#4facfe] mr-2 flex-shrink-0">
                             •
                           </span>
-                          <span
-                            style={{
-                              overflowWrap: "break-word",
-                              wordWrap: "break-word",
-                            }}
-                          >
+                          <span className="break-words line-clamp-4 hyphens-auto">
                             {achievement}
                           </span>
                         </li>
