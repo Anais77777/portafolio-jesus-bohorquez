@@ -45,7 +45,7 @@ export default function About() {
       ],
     },
     {
-      position: "Fullstack  TypeScript Developer (Vue.js)",
+      position: "Fullstack  TypeScript Developer",
       company: "Cidenet",
       period: "2022 - 2023",
       achievements: [
