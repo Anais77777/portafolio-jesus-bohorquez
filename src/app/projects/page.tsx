@@ -12,11 +12,11 @@ export default function Projects() {
     {
       id: 1,
       category: "Web App",
-      title: "Project 1",
+      title: "Tweettothread",
       description:
-        "Web application built with React and Node.js that provides real-time data visualization for business analytics.",
+        "What does the app do? Turn any idea or tweet into a complete Twitter/X thread, instantly. Write effective threads in seconds, even if you're not a writer.",
       technologies: ["React", "Node.js", "MongoDB", "Scalable"],
-      link: "#",
+      link: "https://tweettothread.bohorquez.dev/",
     },
     {
       id: 2,
