@@ -15,7 +15,12 @@ export default function Projects() {
       title: "Tweettothread",
       description:
         "What does the app do? Turn any idea or tweet into a complete Twitter/X thread, instantly. Write effective threads in seconds, even if you're not a writer.",
-      technologies: ["React", "Node.js", "MongoDB", "Scalable"],
+      technologies: [
+        "Next.js & Middleware ",
+        "Nest.js",
+        "Tailwind",
+        "PostgreSQL",
+      ],
       link: "https://tweettothread.bohorquez.dev/",
     },
     {
