@@ -12,7 +12,7 @@ export default function Projects() {
     {
       id: 1,
       category: "Web App",
-      title: "Tweettothread",
+      title: "Idead tweet",
       description:
         "What does the app do? Turn any idea or tweet into a complete Twitter/X thread, instantly. Write effective threads in seconds, even if you're not a writer.",
       technologies: [
@@ -25,12 +25,12 @@ export default function Projects() {
     },
     {
       id: 2,
-      category: "E-commerce",
-      title: "Project 2",
+      category: "Web App",
+      title: "Tracker",
       description:
-        "E-commerce platform with Next.js featuring a responsive UI, secure payment processing, and user authentication.",
+        "Check official and parallel market rates in Venezuela, updated automatically.",
       technologies: ["Next.js", "Tailwind CSS", "Stripe", "Firebase"],
-      link: "#",
+      link: "https://monedacambio.bohorquez.dev/",
     },
     {
       id: 3,
