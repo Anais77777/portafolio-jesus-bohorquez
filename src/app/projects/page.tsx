@@ -28,7 +28,7 @@ export default function Projects() {
       category: "Web App",
       title: "Tracker",
       description:
-        "Check official and parallel market rates in Venezuela, updated automatically.",
+        "Check official and market rates in Venezuela, updated automatically.",
       technologies: ["Next.js", "Tailwind CSS", "Stripe", "Firebase"],
       link: "https://monedacambio.bohorquez.dev/",
     },
